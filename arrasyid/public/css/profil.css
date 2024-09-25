@@ -1,0 +1,254 @@
+/* General Styling */
+.text-light {
+    color: #ffffff;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+
+.feature-row {
+    padding: 30px 0;
+}
+
+/* Image Styling */
+/* Image Styling */
+.feature-row-image img,
+.bio-section img {
+    width: 100%;
+    max-width: 80%; /* Adjust this value as needed */
+    height: auto;
+    border-radius: 25px;
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .header-section {
+        text-align: center;
+        padding: 30px 15px;
+    }
+
+    .header-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-section small {
+        font-size: 1rem;
+    }
+
+    .bio-section img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .feature-row {
+        padding: 30px 0;
+    }
+
+    .title-section {
+        font-size: 1.5rem;
+    }
+
+    .feature-row-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .feature-row-image {
+        text-align: center;
+        margin-bottom: -20px;
+    }
+}
+
+
+/* Ensure content is above overlay */
+.intro-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Background Image Styling */
+.intro-section {
+    position: relative;
+    background-image: url('../img/home30.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+    padding: 40px 15px; /* Increased padding for better spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Text Styling */
+.header-section h1 {
+    font-size: 2.5rem; /* Responsive font size */
+    font-weight: 700;  /* Bold font for emphasis */
+    letter-spacing: 1px; /* Add some spacing between letters */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.header-section small {
+    font-size: 1rem; /* Smaller font size for subtitle */
+    font-weight: 300;
+}
+
+
+/* CSS tambahan untuk margin dan styling */
+.container.mt-5 {
+    margin-top: 50px; /* Sesuaikan margin atas sesuai kebutuhan */
+}
+
+.row.justify-content-center {
+    display: flex;
+    flex-wrap: wrap; /* Memastikan kolom tidak meluber jika layar kecil */
+    justify-content: space-between; /* Menyebar kolom dengan jarak antar kolom */
+}
+
+.col-md-3.mb-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Memastikan teks berada di tengah kolom secara vertikal */
+    margin-bottom: 20px; /* Menambahkan jarak bawah untuk setiap kolom */
+}
+
+
+/* CSS Animasi Kustom */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.bio-section {
+    margin-top: 50px; /* Sesuaikan nilai ini jika perlu */
+        padding-top: 20px; /* Menambahkan padding atas jika diperlukan */
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+.bio-section .col-md-6 img {
+    opacity: 0;
+    animation: fadeInLeft 1s forwards;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan secara manual */
+}
+
+.bio-section .col-md-6:last-child {
+    opacity: 0;
+    animation: fadeInRight 1s forwards;
+}
+
+/* CSS Animasi Kustom */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-section .feature-row {
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+.service-section .col-md-6 img {
+    opacity: 0;
+    animation: fadeInLeft 1s forwards;
+}
+
+.service-section .col-md-6:nth-child(2) img {
+    animation: fadeInRight 1s forwards;
+}
+
+.service-section .feature-row-text {
+    opacity: 0;
+    animation: fadeInRight 1s forwards;
+}
+
+.service-section .feature-row-image {
+    opacity: 0;
+    animation: fadeInLeft 1s forwards;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .header-section h1 {
+        font-size: 2rem;
+    }
+
+    .header-section small {
+        font-size: 1.2rem;
+    }
+
+    .feature-row {
+            padding: 40px 0;
+    }
+
+    .title-section {
+        font-size: 1.8rem;
+    }
+
+    .feature-row-text h2 {
+        font-size: 1.8rem;
+    }
+}

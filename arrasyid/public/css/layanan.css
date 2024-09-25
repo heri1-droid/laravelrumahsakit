@@ -1,0 +1,165 @@
+.card-layanan-page {
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px; 
+    padding-top: 270px;
+}
+
+.card-layanan-page:hover {
+    background: radial-gradient(circle, #2da14a, #0d7b26);
+    /* background: radial-gradient(circle, #ffffff, #fffdf9); */
+    color: #fff ; 
+    transform: translateY(-5px) ;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) ;
+}
+
+.card-layanan-page:hover small {
+    color: #fff !important; 
+}
+
+.card-layanan-page:hover .btn {
+    background-color: #fff;
+    color: #0a7424 !important; 
+}
+
+.card-layanan-page:hover .btn small {
+    color: #0a7424 !important; 
+}
+
+
+
+@media (max-width: 768px) {
+    .col-md-2 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-bottom: 20px;
+    }
+
+    .card-layanan-page h6 {
+        font-size: 13px;
+    }
+
+    .card-layanan-page small {
+        font-size: 11px;
+    }
+
+    .apointment-layanan a.btn {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: -20px; 
+    }
+
+    .container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+.intro-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.intro-section {
+    position: relative;
+    background-image: url('../img/home30.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+    padding: 40px 15px; /* Increased padding for better spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Text Styling */
+.header-section h1 {
+    font-size: 2.5rem; /* Responsive font size */
+    font-weight: 700;  /* Bold font for emphasis */
+    letter-spacing: 1px; /* Add some spacing between letters */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.header-section small {
+    font-size: 1rem; /* Smaller font size for subtitle */
+    font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn.active {
+    background-color: #28a745; /* or any other color you prefer */
+    color: #fff;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Jarak antara elemen di dalam container */
+}
+
+/* Mengatur gaya latar belakang cyan */
+.wrapper {
+    background-color: #e4f2f1; /* warna cyan */
+    padding: 20px; /* padding sekitar */
+    padding-left: 30px; /* padding tambahan di kiri */
+    padding-right: 30px; /* padding tambahan di kanan */
+    border-radius: 10px; /* sudut membulat */
+    margin-bottom: 70px;
+}
+
+/* Mengatur gaya untuk paket */
+.paket-umum, .paket-lengkap {
+    background-color: #ffffff; /* warna putih */
+    box-sizing: border-box; /* menyertakan padding dan border dalam ukuran total */
+    margin: auto; /* untuk memusatkan kotak */
+    max-width: 90%; /* lebar maksimum kotak */
+    border-radius: 8px; /* sudut membulat */
+    padding: 20px; /* padding di dalam kotak */
+}
+
+/* Mengatur ukuran khusus untuk paket umum */
+.paket-umum {
+    margin-bottom: 30px; /* Jarak bawah antara paket */
+}
+
+/* Mengatur ukuran khusus untuk paket lengkap */
+.paket-lengkap {
+    margin-bottom: 30px; /* Jarak bawah antara paket */
+}
+
+/* Menyesuaikan ukuran responsif untuk perangkat kecil */
+@media (max-width: 767px) {
+    .paket-umum, .paket-lengkap {
+        max-width: 100%; /* lebar penuh pada perangkat kecil */
+    }
+}

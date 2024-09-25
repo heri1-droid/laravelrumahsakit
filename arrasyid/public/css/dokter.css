@@ -1,0 +1,209 @@
+/* Styling for doctor cards */
+.card-doktor-page {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    padding: 10px;
+    background-color: #fff;
+    /* Background default putih */
+    
+    /* Teks default hitam */
+}
+
+.card-doktor-page:hover p.text-success {
+    color: #fff !important;
+    /* Paksa warna teks menjadi putih saat hover */
+}
+
+.card-doktor-page:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: radial-gradient(circle, #2da14a, #0d7b26);
+    /* Background hijau saat hover */
+    color: #fff;
+    /* Teks putih saat hover */
+}
+
+.card-doktor-page:hover h6,
+.card-doktor-page:hover small {
+    color: #fff;
+    /* Nama dokter dan spesialis menjadi putih saat hover */
+}
+
+.card-doktor-page:hover small {
+    color: #28a745;
+    /* Teks dalam <small> menjadi hijau saat hover kartu */
+}
+
+.card-doktor-page:hover p {
+    color: #fff;
+    /* Teks dalam elemen <p> menjadi putih saat hover */
+}
+
+.card-doktor-page .img {
+    width: 150px; /* Sesuaikan lebar kontainer gambar */
+    height: 150px; /* Sesuaikan tinggi kontainer gambar */
+    overflow: hidden; /* Menyembunyikan bagian gambar yang melampaui kontainer */
+    display: flex;
+    justify-content: center; /* Menyelaraskan gambar di tengah secara horizontal */
+    align-items: center; /* Menyelaraskan gambar di tengah secara vertikal */
+    border-radius: 50%; /* Membuat kontainer berbentuk bulat */
+    border: 3px solid #f8f9fa; /* Border gambar */
+    background: #f8f9fa; /* Warna latar belakang kontainer jika diperlukan */
+}
+
+.card-doktor-page .img img {
+    width: 100%; /* Mengisi lebar kontainer */
+    height: 100%; /* Mengisi tinggi kontainer */
+    object-fit: cover; /* Memastikan gambar mengisi kontainer tanpa distorsi */
+    border-radius: 50%; /* Membuat gambar berbentuk bulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan lembut untuk efek kedalaman */
+}
+
+
+.img {
+    display: flex;
+    align-items: center; /* Menyelaraskan gambar di tengah secara vertikal */
+    justify-content: center; /* Menyelaraskan gambar di tengah secara horizontal */
+    width: 150px; /* Menentukan lebar kontainer gambar */
+    height: 150px; /* Menentukan tinggi kontainer gambar */
+    overflow: hidden; /* Menyembunyikan bagian gambar yang melampaui kontainer */
+    border-radius: 50%; /* Membuat kontainer berbentuk bulat */
+    border: 3px solid #f8f9fa; /* Border kontainer */
+    background: #f8f9fa; /* Warna latar belakang kontainer jika diperlukan */
+    margin: 0 auto; /* Menyelaraskan kontainer gambar di tengah */
+}
+
+.img img {
+    width: 100%; /* Mengisi lebar kontainer */
+    height: 100%; /* Mengisi tinggi kontainer */
+    object-fit: cover; /* Memastikan gambar mengisi kontainer tanpa distorsi */
+    border-radius: 50%; /* Membuat gambar berbentuk bulat */
+}
+
+
+.card-doktor-page h6 {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.card-doktor-page small {
+    font-size: 0.75rem;
+}
+
+.card-doktor-page .apointment .btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #28a745;
+    /* Teks tombol hijau saat default */
+    border: 1px solid #28a745;
+    /* Border hijau untuk tombol */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.containeres {
+    max-width: 960px;
+    /* Kurangi lebar kontainer */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-btn {
+    background-color: #007bff; /* Warna background biru */
+    color: #fff; /* Warna teks putih */
+    border: 1px solid #007bff; /* Border dengan warna yang sama */
+    padding: 10px 20px; /* Padding untuk ukuran tombol */
+    border-radius: 5px; /* Sudut yang lebih membulat */
+    transition: background-color 0.3s, color 0.3s; /* Animasi transisi */
+}
+
+.card-doktor-page .apointment .btn:hover {
+    background: radial-gradient(circle, #f8f9fa, #f0f0f0, #e9ecef);
+    /* Background hijau saat hover tombol */
+    color: green;
+    /* Teks tombol putih saat hover tombol */
+    border: none;
+    /* Menghilangkan border saat hover tombol */
+}
+
+/* Styling for the search form */
+.search-form {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    /* Bayangan untuk kesan lebih elegan */
+    padding: 0.5rem;
+    /* Ruang di sekitar elemen pencarian */
+    background-color: #f8f9fa;
+    /* Warna latar belakang yang lebih cerah */
+    border-radius: 0.5rem;
+    /* Membuat sudut yang lebih halus */
+}
+
+.search-form .form-control,
+.search-form .form-select {
+    font-size: 0.875rem;
+    /* Ukuran font sedikit lebih kecil */
+    padding: 0.5rem;
+    /* Padding lebih kecil */
+    border-radius: 0.25rem;
+    /* Border radius untuk kesan lebih halus */
+}
+
+.search-form input,
+.search-form select {
+    border-radius: 25px;
+}
+
+.search-form .btn {
+    font-size: 0.875rem;
+    /* Ukuran font pada tombol lebih kecil */
+    padding: 0.5rem 1rem;
+    /* Padding tombol lebih kecil dan proporsional */
+    border-radius: 0.25rem;
+    /* Border radius untuk tombol */
+    background-color: #28a745;
+    /* Warna hijau yang lebih cerah */
+    border: none;
+    /* Hilangkan border untuk tampilan lebih bersih */
+}
+
+.search-form .btn:hover {
+    background-color: #218838;
+    /* Warna hijau lebih gelap saat di-hover */
+}
+
+.search-form button {
+    border-radius: 25px;
+}
+
+/* Styling for pagination */
+.pagination {
+    margin-top: 20px;
+}
+
+.page-link {
+    border-radius: 25px;
+    padding: 5px 15px;
+    /* Mengurangi padding pada pagination */
+}
+
+.page-item.active .page-link {
+    background-color: #28a745;
+    /* Warna hijau untuk halaman aktif */
+    border-color: #28a745;
+}
+
+.page-link:hover {
+    background-color: #e9ecef;
+    /* Warna latar belakang saat di-hover */
+}
+
+.page-link:focus {
+    box-shadow: none;
+    /* Hilangkan bayangan saat tombol fokus */
+}
+
+
+
+

@@ -1,0 +1,65 @@
+.sidebar {
+    background-color: #f8f9fa;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+}
+
+/* Gaya default link */
+.sidebar a.active {
+    color: white;
+    border-radius: 8px;
+}
+
+/* Warna aktif untuk setiap link */
+.sidebar .home-link.active {
+    background-color: #e83e8c;
+}
+
+.sidebar .berita-link.active {
+    background-color: #007bff;
+}
+
+.sidebar .dokter-link.active {
+    background-color: #28a745;
+}
+
+.sidebar .saran-link.active {
+    background-color: #ffc107;
+}
+
+.sidebar .kontak-link.active {
+    background-color: #17a2b8;
+}
+
+/* Hover efek */
+.sidebar a:hover {
+    background-color: #e83e8c;
+    color: white;
+    border-radius: 8px;
+}
+
+.header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    float: right;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    box-shadow: none;
+}
+
+.logout-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
