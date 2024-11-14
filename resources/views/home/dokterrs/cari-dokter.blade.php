@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-8 text-center header-section header-section-light">
-                <h1 class="mb-0 text-light">Dokter</h1>
+                <h1 class="mb-0 text-light">Dokter</rtyrtyh1>
                 <small class="text-light">RSI Ar-Rasyid Palembang</small>
             </div>
         </div>
