@@ -27,7 +27,7 @@
             <!-- Sidebar -->
             <nav class="col-md-2 d-none d-md-block sidebar">
                 <div class="position-sticky">
-                    <a href="#" class="home-link active"><i class="bi bi-house-fill"></i> Home</a>
+                    <a href="{{route('dashboard')}}" class="home-link active"><i class="bi bi-house-fill"></i> Home</a>
                     <a href="{{route('berita')}}" class="berita-link"><i class="bi bi-person-fill"></i> Berita</a>
                     <a href="{{route('dokter')}}" class="dokter-link"><i class="bi bi-people-fill"></i> Dokter</a>
                     <a href="{{route('pesan')}}" class="saran-link"><i class="bi bi-people-fill"></i> Pesan</a>
@@ -43,9 +43,12 @@
                         @csrf
                         <button type="submit" class="btn logout-btn">LOGOUT</button>
                     </form>
+                    <h2>Selamat Datang di Menu Admin<br> Rumah Sakit Islam Ar-Rasyid Palembang</h2>
                 </div>
                 @yield('content')
+                
             </main>
+            
         </div>
     </div>
 
