@@ -144,7 +144,7 @@ Route::post('/dokter/destroy/{id}', [DokterController::class, 'destroy'])->name(
 
 Route::get('/dokter', [DokterController::class, 'index'])->name('dokter')->middleware('auth');
 Route::get('/dokter/create', [DokterController::class, 'create'])->name('dokter.create')->middleware('auth');
-Route::get('/dokter/store', [DokterController::class, 'store'])->name('dokter.store')->middleware('auth');
+//Route::get('/dokter/store', [DokterController::class, 'store'])->name('dokter.store')->middleware('auth');
 
 Route::get('/pesan', [PesanController::class, 'index'])->name('pesan')->middleware('auth');
 Route::delete('/pesan/destroy/{id}', [PesanController::class, 'destroy'])->name('pesan.destroy')->middleware('auth');
