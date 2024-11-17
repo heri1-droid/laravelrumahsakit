@@ -124,7 +124,7 @@
           <div class="custom-box text-center">
             <a href="{{ url('/') }}#mitra" class="{{ Request::is('mitra') ? 'active' : ''}}">
               <img src="{{ asset('img/medal.png') }}" alt="Dakwah & Kemitraan" class="icon-green icon-spacing img-fluid">
-              <h5 class="text-uppercase text-custom mt-2">Dakwah & Kemitraan</h5>
+              <h5 class="text-uppercase text-custom mt-2">Kemitraan</h5>
             </a>
           </div>
         </div>
