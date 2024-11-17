@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('doctor_schedules', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('doctor_id')->constrained('doctors')->onDelete('cascade');
+            $table->uuid('id')->primary();
             $table->string('day');
             $table->time('start_time');
             $table->time('end_time');
+            $table->uuid('doctor_id'); // Tetap menggunakan UUID
+            $table->foreign('doctor_id')->references('id')->on('doctors'); // Tambahkan foreign key
             $table->timestamps();
         });
     }

@@ -128,6 +128,7 @@ class DokterController extends Controller
         foreach ($request->schedules as $day => $times) {
             if (!empty($times['start_time']) && !empty($times['end_time'])) {
                 DoctorSchedule::create([
+                    'id' => Str::uuid(), // Tambahkan UUID untuk kolom id
                     'doctor_id' => $doctor->id,
                     'day' => $day,
                     'start_time' => $times['start_time'],
