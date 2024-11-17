@@ -5,30 +5,30 @@
 
             <!-- Email -->
             <li class="nav-item d-flex align-items-center d-none d-lg-flex">
-                <a class="nav-link icon-link" href="mailto:rs.ar.plm@gmail.com">
+                <a class="nav-link icon-link text-white" href="mailto:rs.ar.plm@gmail.com">
                     <i class="fas fa-envelope"></i>  
                 </a>
-                <a class="nav-link">Email<br>rs.ar.plm@gmail.com</a>
+                <a class="nav-link text-white">Email<br>rs.ar.plm@gmail.com</a>
             </li>
             <!-- Telepon -->
             <li class="nav-item d-flex align-items-center d-none d-lg-flex">
-                <a class="nav-link icon-link" href="tel:07115610503"> 
+                <a class="nav-link icon-link text-white" href="tel:07115610503"> 
                     <i class="fas fa-phone"></i>
                 </a>
-                <a class="nav-link">Telpn/fax<br>(0711) 5610503</a>
+                <a class="nav-link text-white">Telpn/fax<br>(0711) 5610503</a>
             </li>
             <!-- Media Sosial -->
             <li class="nav-item d-none d-lg-block">
-                <a class="nav-link icon-link" target="_blank" href="https://www.instagram.com/rs_islam_arrasyid/">
+                <a class="nav-link icon-link text-white" target="_blank" href="https://www.instagram.com/rs_islam_arrasyid/">
                     <i class="fab fa-instagram"></i>
-
                 </a>
             </li>
             <li class="nav-item d-none d-lg-block">
-                <a class="nav-link icon-link" target="_blank" href="https://www.youtube.com/@rs.ar-rasyidpalembang/videos">
+                <a class="nav-link icon-link text-white" target="_blank" href="https://www.youtube.com/@rs.ar-rasyidpalembang/videos">
                     <i class="fab fa-youtube"></i>
                 </a>
             </li>
+            
         </ul>
     </div>
 </nav>
