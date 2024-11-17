@@ -102,7 +102,7 @@
       <div class="row mt-sm-20" style="margin-top: -70px;">
         <!-- Kolom 1 -->
         <div class="col-12 col-md-4 d-flex align-items-stretch">
-          <div class="custom-box shadow-lg text-center">
+          <div class="custom-box  text-center">
             <a href="{{ url('/profil') }}?scroll=visi" class="{{ Request::is('profil') ? 'active' : ''}}">
               <img src="{{ asset('img/islam.png') }}" alt="Visi & Misi" class="icon-green icon-spacing img-fluid">
               <h5 class="text-uppercase text-custom mt-2">Visi & Misi</h5>
@@ -111,7 +111,7 @@
         </div>
         <!-- Kolom 2 -->
         <div class="col-12 col-md-4 d-flex align-items-stretch">
-          <div class="custom-box shadow-lg text-center">
+          <div class="custom-box text-center">
             <a href="{{ url('/profil') }}#sejarah" class="{{ Request::is('sejarah') ? 'active' : ''}}">
               <!-- <a href="/profil" class="{{ Request::is('sejarah') ? 'active' : ''}}"> -->
               <img src="{{ asset('img/hospital.png') }}" alt="Sejarah" class="icon-green icon-spacing img-fluid">
@@ -121,7 +121,7 @@
         </div>
         <!-- Kolom 3 -->
         <div class="col-12 col-md-4 d-flex align-items-stretch">
-          <div class="custom-box shadow-lg text-center">
+          <div class="custom-box text-center">
             <a href="{{ url('/') }}#mitra" class="{{ Request::is('mitra') ? 'active' : ''}}">
               <img src="{{ asset('img/medal.png') }}" alt="Dakwah & Kemitraan" class="icon-green icon-spacing img-fluid">
               <h5 class="text-uppercase text-custom mt-2">Dakwah & Kemitraan</h5>

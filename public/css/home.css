@@ -205,6 +205,8 @@
 .nav-atas {
     margin: 0 8px;
     font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+
 }
 
 .bg-body-secondary {
@@ -221,7 +223,7 @@
 .nav-link.active {
     background: radial-gradient(circle, #0e9d31, #0d892a);
     color: #ffffff !important;
-    border-radius: 0.1em;
+    border-radius: 0.6em;
 }
 
 /* tambah */
@@ -241,7 +243,7 @@
 .nav-atas .nav-link.active {
     background-color: rgb(22 163 74) !important;
     color: #ffffff !important;
-    border-radius: 0.1em;
+    border-radius: 0.6em;
 }
 
 .navbar-header.scrolled .nav-link.active {
@@ -357,7 +359,7 @@ body.scrolled .navbar-body-tertiary {
     justify-content: center;
     border-radius: 15px;
     /* Rounded corners */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 7px 10px 10px rgba(0, 0, 0, 0.1);  */
     /* Shadow */
     padding: 10px;
     margin: 8px;
