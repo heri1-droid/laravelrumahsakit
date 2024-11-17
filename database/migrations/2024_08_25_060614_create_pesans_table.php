@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pesan', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->string('rate');
             $table->longText('ulasan');
             $table->string('nama');

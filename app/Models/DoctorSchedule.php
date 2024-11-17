@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Str;
 
 class DoctorSchedule extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUlids;
     protected $table = 'doctor_schedules';
 
     protected $fillable = ['doctor_id', 'day', 'start_time', 'end_time'];

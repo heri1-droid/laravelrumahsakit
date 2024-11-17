@@ -48,6 +48,7 @@
                                 class="fa fa-star"></i></label>
                     </div>
                     <span id="rate" name="rate">{{ old('rate') }}</span>
+                    <div id="rating-text"></div>
                 </div>
                 <div class="col-12 py-2 ">
                     <label for="message">Penilaianmu *</label>
@@ -215,4 +216,31 @@
             rateDisplay.textContent = this.value;
         });
     });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const ratingTexts = {
+        1: "Tidak Memuaskan",
+        2: "Kurang Memuaskan",
+        3: "Memadai",
+        4: "Sangat Memuaskan",
+        5: "Luar Biasa"
+    };
+
+    // Ambil semua radio button berdasarkan nama 'rate'
+    const ratingInputs = document.querySelectorAll('input[name="rate"]');
+
+    // Ketika radio button dipilih
+    ratingInputs.forEach(function(input) {
+        input.addEventListener('change', function() {
+            const ratingValue = this.value; // Ambil nilai yang dipilih (1-5)
+            const ratingText = ratingTexts[ratingValue]; // Ambil teks sesuai nilai
+
+            // Tampilkan teks penilaian di bawah bintang
+            document.getElementById('rating-text').textContent = ratingText;
+        });
+    });
+});
+
 </script>

@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pelayanans', function (Blueprint $table) {
-            $table->id();
-            $table->string('layanan')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('image')->nullable();
-            $table->longText('desc')->nullable();
+            $table->uuid('id');
+            $table->primary('id');
+            $table->string('layanan');
+            $table->string('slug');
+            $table->string('image');
+            $table->longText('desc');
             $table->timestamps();
         });
     }
