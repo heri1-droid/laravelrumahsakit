@@ -250,6 +250,7 @@
                                     <img src="{{ asset('/storage/doctor/' . $doctor->foto) }}" alt="Dokter Umum" class="rounded-circle shadow-sm" width="150" height="150">
                                     <h6 class="mt-3 text-success font-weight-bold">Dokter {{ $doctor->spesialis }}</h6>
                                     <p class="text-secondary">{{ $doctor->nama }}</p>
+                                    {{-- <p class="text-secondary">{!! $doctor->desc !!}</p> --}}
                                 </div>
                             </div>
                         </div>

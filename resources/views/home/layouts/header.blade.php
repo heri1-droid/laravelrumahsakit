@@ -15,7 +15,7 @@
                 <a class="nav-link icon-link text-white" href="tel:07115610503"> 
                     <i class="fas fa-phone"></i>
                 </a>
-                <a class="nav-link text-white">Telpn/fax<br>(0711) 5610503</a>
+                <a class="nav-link text-white">Telpon/fax<br>(0711) 5610503</a>
             </li>
             <!-- Media Sosial -->
             <li class="nav-item d-none d-lg-block">
