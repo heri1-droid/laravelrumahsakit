@@ -190,4 +190,35 @@ class BeritaController extends Controller
 
         return redirect(route('berita'))->with('success', 'data berhasil di hapus');
     }
+
+    public function getBerita(){
+        $response['data'] = Berita::all();
+        $response['message'] = 'List data Berita';
+        $response['success'] = true;
+
+        return response()->json($response, 200);
+    }
+
+    public function storeBerita(Request $request){
+        // validasi input
+        $input = $request->validate([
+            "judul"      => "required|unique:beritas",
+            "slug"     => "required",
+            "images" => "required",
+            "desc" => "required"
+
+        ]);
+
+        // simpan
+        $hasil = Berita::create($input);
+        if($hasil){ // jika data berhasil disimpan
+            $response['success'] = true;
+            $response['message'] = $request->nama."Berita berhasil diUpload";
+            return response()->json($response, 201); // 201 Created
+        } else {
+            $response['success'] = false;
+            $response['message'] = $request->nama."Berita gagal diUpload";
+            return response()->json($response, 400); // 400 Bad Request
+        }
+    }
 }
