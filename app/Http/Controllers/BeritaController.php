@@ -204,10 +204,18 @@ class BeritaController extends Controller
         $input = $request->validate([
             "judul"      => "required|unique:beritas",
             "slug"     => "required",
-            "images" => "required",
+            "image" => "nullable|image|mimes:jpg,jpeg,png,webp|max:2048",
             "desc" => "required"
 
         ]);
+
+        //foto gess
+        if ($request->hasFile('image')) {
+            // Upload foto ke folder 'images'
+            $fotoPath = $request->file('image')->store('images', 'public');
+            // Menambahkan path foto ke input data
+            $input['image'] = $fotoPath;
+        }
 
         // simpan
         $hasil = Berita::create($input);
