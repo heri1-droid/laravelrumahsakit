@@ -4,6 +4,7 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+
 class Kernel extends HttpKernel
 {
     /**
@@ -66,7 +67,7 @@ class Kernel extends HttpKernel
     ];
 
     protected $middlewareAliases = [
-        // kode lain
         'ability' => \Laravel\Sanctum\Http\Middleware\CheckForAnyAbility::class,
+
     ];
 }
