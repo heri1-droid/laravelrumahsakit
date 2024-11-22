@@ -23,8 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthController::class, 'login']);
 
-Route::get('berita', [BeritaController::class, 'getBerita']);
-Route::post('berita', [BeritaController::class, 'storeBerita'])->middleware(['auth:sanctum']);
+Route::get('berita', [BeritaController::class, 'getBerita'])->middleware(['auth:sanctum', 'ability:read']);
+Route::post('berita', [BeritaController::class, 'storeBerita'])->middleware(['auth:sanctum', 'ability:create']);
 
 
 
