@@ -22,14 +22,5 @@ class AppssController extends Controller
     }
 
 
-    // public function dokterrs()
-    // {
-    //     // Mengambil data dokter dengan pagination
-    //     $doctors = Doctor::orderBy('created_at', 'desc')->paginate(8);
-
-    //     // Mengembalikan view dengan data dokter
-    //     return view('home.layouts.wrapper', [
-    //         'doctors' => $doctors,
-    //     ]);
-    // }
+    
 }

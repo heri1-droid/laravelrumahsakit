@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Models\DoctorSchedule;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
-
-
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +16,7 @@ class DokterController extends Controller
 {
     public function index()
     {
-        
+
         return view("home.admin.dokter.index", [
             'doctors' => Doctor::orderBy('created_at', 'desc')->paginate(3),
         ]);
@@ -243,7 +243,6 @@ class DokterController extends Controller
     }
 
 
-
     public function destroy($id)
     {
         // Temukan dokter berdasarkan ID
@@ -263,5 +262,189 @@ class DokterController extends Controller
         return redirect()->route('dokter')->with('success', 'Dokter berhasil dihapus!');
     }
 
-   
+
+    //======================================================================================================================================================================================================================
+    //================================BATAS==========================================================================================================================================================================
+    //======================================================================================================================================================================================================================
+
+    public function getDokter()
+    {
+        $response['data'] = Doctor::all();
+        $response['message'] = 'List data Dokter';
+        $response['success'] = true;
+
+        return response()->json($response, 200);
+    }
+
+            
+    public function storeDokter(Request $request)
+    {
+        // Validation rules and messages
+        $rules = [
+            'nama' => 'required|string|max:255',
+            'spesialis' => 'required|string|max:255',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'desc' => 'nullable|string',
+        ];
+
+        $request->validate($rules);
+
+        // Image handling
+        $fileName = null;
+        if ($request->hasFile('foto')) {
+            $fileName = time() . '.' . $request->foto->extension();
+            $request->file('foto')->storeAs('public/doctor', $fileName);
+        }
+
+        // Description processing with embedded images
+        $storage = "storage/doctor";
+        $dom = new \DOMDocument();
+
+        // Enable user error handling
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($request->desc, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
+        libxml_clear_errors(); // Clear libxml errors
+
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $img) {
+            $src = $img->getAttribute('src');
+            if (preg_match('/data:image/', $src)) {
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                $mimetype = $groups['mime'];
+                $fileNameContent = uniqid();
+                $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
+                $filePath = ("$storage/$fileNameContentRand.$mimetype");
+                $image = Image::make($src)->resize(1440, 720)->encode($mimetype, 100)->save(public_path($filePath));
+                $new_src = asset($filePath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+                $img->setAttribute('class', 'img-responsive');
+            }
+        }
+
+        // Save doctor data
+        $hasil = Doctor::create([
+            'nama' => $request->nama,
+            'spesialis' => $request->spesialis,
+            'desc' => $dom->saveHTML(),
+            'foto' => $fileName,
+        ]);
+
+        if($hasil){ // jika data berhasil disimpan
+            $response['success'] = true;
+            $response['message'] ="Dokter {$request->nama} berhasil Disimpan";
+            return response()->json($response, 201); // 201 Created
+        } else {
+            $response['success'] = false;
+            $response['message'] = $request->nama." gagal Disimpan";
+            return response()->json($response, 400); // 400 Bad Request
+        }
+        // Save doctor schedules
+        
+    }
+    
+    public function updateDokter(Request $request, $id)
+    {
+        // Validation rules and messages
+        $rules = [
+            'nama' => 'required|unique:doctors',
+            'spesialis' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'desc' => 'required',
+        ];
+
+    
+        $request->validate($rules);
+
+        // Find the doctor to update
+        $doctor = Doctor::findOrFail($id);
+
+        // Image handling
+        $fileName = $doctor->foto; // Preserve existing file name if no new photo is uploaded
+        if ($request->hasFile('foto')) {
+            // Delete old file
+            if ($fileName && \Storage::exists("public/doctor/$fileName")) {
+                \Storage::delete("public/doctor/$fileName");
+            }
+
+            $fileName = time() . '.' . $request->foto->extension();
+            $request->file('foto')->storeAs('public/doctor', $fileName);
+        }
+
+        // Description processing with embedded images
+        $storage = "storage/doctor";
+        $dom = new \DOMDocument();
+
+        // Enable user error handling
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($request->desc, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
+        libxml_clear_errors(); // Clear libxml errors
+
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $img) {
+            $src = $img->getAttribute('src');
+            if (preg_match('/data:image/', $src)) {
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                $mimetype = $groups['mime'];
+                $fileNameContent = uniqid();
+                $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
+                $filePath = ("$storage/$fileNameContentRand.$mimetype");
+                $image = Image::make($src)->resize(1440, 720)->encode($mimetype, 100)->save(public_path($filePath));
+                $new_src = asset($filePath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+                $img->setAttribute('class', 'img-responsive');
+            }
+        }
+
+        // Update doctor data
+        $hasil = $doctor->update([
+            'nama' => $request->nama,
+            'spesialis' => $request->spesialis,
+            'desc' => $dom->saveHTML(),
+            'foto' => $fileName,
+        ]);
+
+
+        if($hasil){ // jika data berhasil disimpan
+            $response['success'] = true;
+            $response['message'] = $request->nama." berhasil diubah";
+            return response()->json($response, 201); // 201 Created
+        } else {
+            $response['success'] = false;
+            $response['message'] = $request->nama." gagal diubah";
+            return response()->json($response, 400); // 400 Bad Request
+        }
+    }
+    public function destroyDokter($id)
+    {
+
+        // Temukan dokter berdasarkan ID
+        $doctor = Doctor::findOrFail($id);
+
+        // Hapus foto jika ada
+        if ($doctor->foto && \Storage::exists("public/doctor/{$doctor->foto}")) {
+            \Storage::delete("public/doctor/{$doctor->foto}");
+        }
+
+        // Hapus jadwal dokter
+        DoctorSchedule::where('doctor_id', $doctor->id)->delete();
+
+        // Hapus dokter
+        $result = $doctor->delete();
+
+        if ($result) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Dokter berhasil dihapus!'
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal menghapus dokter'
+            ], 400);
+        }
+    }
 }

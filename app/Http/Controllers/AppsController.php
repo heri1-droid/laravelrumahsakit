@@ -9,15 +9,7 @@ class AppsController extends Controller
 {
 
 
-    // public function layanan()
-    // {
-    //     $data = [
-    //         'content' => 'home/layanan/layanan',
-    //         'layanans' => Pelayanan::orderBy('id', 'desc')->get()
-    //     ];
 
-    //     return view('home.layouts.wrapper', $data);
-    // }
 
     public function layanan()
     {

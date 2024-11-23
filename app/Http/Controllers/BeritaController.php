@@ -191,6 +191,14 @@ class BeritaController extends Controller
         return redirect(route('berita'))->with('success', 'data berhasil di hapus');
     }
 
+    //======================================================================================================================================================================================================================
+    //======================================================================================================================================================================================================================
+    //======================================================================================================================================================================================================================
+    //======================================================================================================================================================================================================================
+    //======================================================================================================================================================================================================================
+    //======================================================================================================================================================================================================================
+
+
     public function getBerita()
     {
         $response['data'] = Berita::all();
@@ -200,60 +208,33 @@ class BeritaController extends Controller
         return response()->json($response, 200);
     }
 
-    // public function storeBerita(Request $request){
-    //     // validasi input
-    //     $input = $request->validate([
-    //         "judul"      => "required|unique:beritas",
-    //         "slug"     => "required",
-    //         "image" => "nullable|image|mimes:jpg,jpeg,png,webp|max:2048",
-    //         "desc" => "required"
 
-    //     ]);
 
-    //     //foto gess
-    //     if ($request->hasFile('image')) {
-    //         // Upload foto ke folder 'images'
-    //         $fotoPath = $request->file('image')->store('images', 'public');
-    //         // Menambahkan path foto ke input data
-    //         $input['image'] = $fotoPath;
-    //     }
-
-    //     // simpan
-    //     $hasil = Berita::create($input);
-    //     if($hasil){ // jika data berhasil disimpan
-    //         $response['success'] = true;
-    //         $response['message'] = $request->nama."Berita berhasil diUpload";
-    //         return response()->json($response, 201); // 201 Created
-    //     } else {
-    //         $response['success'] = false;
-    //         $response['message'] = $request->nama."Berita gagal diUpload";
-    //         return response()->json($response, 400); // 400 Bad Request
-    //     }
-    // }
-
-    public function storeBerita(Request $request)
+    public function updateBerita(Request $request, $id)
     {
         // Validasi
+        $berita = Berita::findOrFail($id);
         $rules = [
-            'judul' => 'required|unique:beritas',
+            'judul' => 'required|unique:beritas,judul,' . $id,
             'image' => 'required|max:2048|mimes:jpg,jpeg,png,webp',
             'desc' => 'required|min:20',
         ];
 
-        $messages = [
-            'judul.required' => 'Judul wajib diisi!',
-            'judul.unique' => 'Judul sudah digunakan!',
-            'image.required' => 'Gambar wajib diisi!',
-            'desc.required' => 'Deskripsi wajib diisi!',
-            'desc.min' => 'Deskripsi minimal 20 karakter!',
-        ];
-
-        $this->validate($request, $rules, $messages);
+        $this->validate($request, $rules);
 
         try {
-            // Handle Featured Image
-            $fileName = time() . '.' . $request->image->extension();
-            $request->file('image')->storeAs('public/artikel', $fileName);
+            // Handle Featured Image jika ada image baru
+            if ($request->hasFile('image')) {
+                // Hapus image lama
+                if (Storage::exists('public/artikel/' . $berita->image)) {
+                    Storage::delete('public/artikel/' . $berita->image);
+                }
+                // Upload image baru
+                $fileName = time() . '.' . $request->image->extension();
+                $request->file('image')->storeAs('public/artikel', $fileName);
+            } else {
+                $fileName = $berita->image;
+            }
 
             // Process Content Images
             $storage = "storage/content-artikel";
@@ -261,8 +242,8 @@ class BeritaController extends Controller
             libxml_use_internal_errors(true);
             $dom->loadHTML($request->desc, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
             libxml_clear_errors();
-
             $images = $dom->getElementsByTagName('img');
+
             foreach ($images as $img) {
                 $src = $img->getAttribute('src');
                 if (preg_match('/data:image/', $src)) {
@@ -285,8 +266,8 @@ class BeritaController extends Controller
                 }
             }
 
-            // Create Berita
-            $hasil = Berita::create([
+            // Update Berita
+            $hasil = $berita->update([
                 'judul' => $request->judul,
                 'slug' => Str::slug($request->judul, '-'),
                 'image' => $fileName,
@@ -296,13 +277,105 @@ class BeritaController extends Controller
             // Response
             if ($hasil) {
                 $response['success'] = true;
-                $response['message'] = "Berita berhasil diUpload";
-                return response()->json($response, 201);
+                $response['message'] = "Berita berhasil diperbarui";
+                return response()->json($response, 200);
             }
         } catch (\Exception $e) {
             $response['success'] = false;
             $response['message'] = "Error: " . $e->getMessage();
             return response()->json($response, 400);
         }
+    }
+
+
+    public function storeBerita(Request $request)
+    {
+        $rules = [
+            'judul' => 'required|unique:beritas',
+            'image' => 'required|max:1000|mimes:jpg,jpeg,png,webp',
+            'desc' => 'required',
+        ];
+
+
+        $this->validate($request, $rules);
+
+
+        // Image
+        $fileName = time() . '.' . $request->image->extension();
+        $request->file('image')->storeAs('public/artikel', $fileName);
+
+        # Artikel
+        $storage = "storage/content-artikel";
+        $dom = new \DOMDocument();
+
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($request->desc, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
+        libxml_clear_errors();
+
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $img) {
+            $src = $img->getAttribute('src');
+            if (preg_match('/data:image/', $src)) {
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                $mimetype = $groups['mime'];
+                $fileNameContent = uniqid();
+                $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
+                $filePath = ("$storage/$fileNameContentRand.$mimetype");
+                $image = Image::make($src)->resize(1440, 720)->encode($mimetype, 100)->save(public_path($filePath));
+
+                $new_src = asset($filePath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+                $img->setAttribute('class', 'img-responsive');
+            }
+        }
+
+
+        $hasil = Berita::create([
+            'judul' => $request->judul,
+            'slug' => Str::slug($request->judul, '-'),
+            'image' => $fileName,
+            'desc' => $dom->saveHTML(),
+
+        ]);
+
+        if($hasil){ // jika data berhasil disimpan
+            $response['success'] = true;
+            $response['message'] = " Berita {$request->judul} berhasil ditambah";
+            return response()->json($response, 201); // 201 Created
+        } else {
+            $response['success'] = false;
+            $response['message'] = $request->nama." gagal disimpan";
+            return response()->json($response, 400); // 400 Bad Request
+        }
+
+    }
+
+    public function destroyBerita($id)
+    {
+
+        $artikel = Berita::findOrFail($id);
+
+        // Perbaikan path file dan penggunaan string interpolation
+        $imagePath = 'storage/artikel/' . $artikel->image;
+
+        if (\File::exists($imagePath)) {
+            \File::delete($imagePath);
+        }
+
+        $hasil = $artikel->delete();
+
+        if ($hasil) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Artikel berhasil dihapus'
+            ], 200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Gagal menghapus artikel'
+        ], 400);
     }
 }
