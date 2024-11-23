@@ -96,7 +96,7 @@
                 </div>
 
 
-                <div class="container py-3" data-aos="fade-up" data-aos-duration="900"> <!-- Mengurangi padding vertical -->
+                <div class="container py-3" data-aos="fade-up" data-aos-duration="900"> <!-- Mengurangi padding vesssrtical -->
                     <div class="col-md-12 text-center py-2" style="margin-bottom: 20px;">
                         <h2 class="title-section">Struktur Organisasi</h2>
                     </div>
@@ -113,7 +113,7 @@
                             <h2 class="title-section py-3"  id="sejarah">SEJARAH</h2>
                         </div>
                     </div>
-                    <div class="service-section" id="visi">
+                    <div class="service-section" id="vissi">
                         <div class="feature-row">
                             <div class="container">
                                 <div class="row align-items-center">
