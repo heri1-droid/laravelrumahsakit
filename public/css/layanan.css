@@ -8,8 +8,9 @@
     padding-top: 270px;
 }
 
+
 .card-layanan-page:hover {
-    background: radial-gradient(circle, #2da14a, #0d7b26);
+    background: radial-gradient(circle, #119732, #0c6b23); /* Background hijau saat hover */
     /* background: radial-gradient(circle, #ffffff, #fffdf9); */
     color: #fff ; 
     transform: translateY(-5px) ;
@@ -116,7 +117,7 @@
 
 
 .btn.active {
-    background-color: #28a745; /* or any other color you prefer */
+    background-color: #28a745;
     color: #fff;
 }
 

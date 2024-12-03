@@ -13,16 +13,46 @@
 
 .card-doktor-page:hover p.text-success {
     color: #fff !important;
+
     /* Paksa warna teks menjadi putih saat hover */
 }
 
-.card-doktor-page:hover {
-    transform: translateY(-5px);
+/* .card-doktor-page:hover {
+    transform: translateY(-10px) !important;
+
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background: radial-gradient(circle, #2da14a, #07581a);
-    /* Background hijau saat hover */
+    background: radial-gradient(circle, #119732, #094918);
     color: #fff;
-    /* Teks putih saat hover */
+} */
+
+
+.card-doktor-page {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.8s ease, color 0.3s ease;
+}
+
+.card-doktor-page:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: radial-gradient(circle, #119732, #0c6b23); /* Background hijau saat hover */
+    color: #fff; /* Teks putih saat hover */
+}
+
+.card-doktor-page .apointment .btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.8s ease;
+}
+
+.card-doktor-page:hover .apointment .btn {
+    background: radial-gradient(circle, #f8f9fa, #ffffff, #e9ecef); /* Background tombol hijau saat hover */
+    color: green; /* Teks tombol hijau */
+    border: none; /* Menghilangkan border */
+}
+
+
+
+.card-doktor-page:hover .apointment .btn:hover {
+    background: radial-gradient(circle, #ffffff, #d4edda, #c3e6cb); /* Gradasi hijau muda */
+    color: #155724; /* Teks hijau tua */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
 }
 
 .card-doktor-page:hover h6,
@@ -95,8 +125,8 @@
 .card-doktor-page .apointment .btn {
     font-size: 0.8rem;
     padding: 5px 10px;
-    background-color: #fff;
-    color: #28a745;
+    background: radial-gradient(circle, #10a735, #13822d);
+    color: #fff;
     /* Teks tombol hijau saat default */
     border: 1px solid #28a745;
     /* Border hijau untuk tombol */
@@ -119,14 +149,19 @@
     transition: background-color 0.3s, color 0.3s; /* Animasi transisi */
 }
 
-.card-doktor-page .apointment .btn:hover {
+/* .card-doktor-page {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+
+.card-doktor-page:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
+} */
+
+/* .card-doktor-page .apointment .btn:hover {
     background: radial-gradient(circle, #f8f9fa, #f0f0f0, #e9ecef);
-    /* Background hijau saat hover tombol */
     color: green;
-    /* Teks tombol putih saat hover tombol */
+
     border: none;
-    /* Menghilangkan border saat hover tombol */
-}
+} */
 
 /* Styling for the search form */
 .search-form {
@@ -162,7 +197,7 @@
     /* Padding tombol lebih kecil dan proporsional */
     border-radius: 0.25rem;
     /* Border radius untuk tombol */
-    background-color: #28a745;
+    background: radial-gradient(circle, #10a735, #10962f);
     /* Warna hijau yang lebih cerah */
     border: none;
     /* Hilangkan border untuk tampilan lebih bersih */

@@ -1,3 +1,9 @@
+
+
+
+.form-control {
+    width: 100px; /* Atur lebar sesuai kebutuhan, misalnya 200px */
+}
 .sidebar {
     background-color: #f8f9fa;
     height: 100vh;

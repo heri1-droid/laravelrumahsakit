@@ -95,7 +95,7 @@ class BeritaController extends Controller
 
         ]);
 
-        return redirect(route('berita'))->with('success', 'data berhasil di simpan');
+        return redirect()->route('berita')->with('success', $request->judul . ' berhasil disimpan');
     }
     public function edit($id)
     {
@@ -176,7 +176,7 @@ class BeritaController extends Controller
             'desc' => $dom->saveHTML(),
         ]);
 
-        return redirect(route('berita'))->with('success', 'data berhasil di update');
+        return redirect(route('berita'))->with('success', 'berita berhasil di update');
     }
     public function destroy($id)
     {
@@ -188,7 +188,7 @@ class BeritaController extends Controller
 
         $artikel->delete();
 
-        return redirect(route('berita'))->with('success', 'data berhasil di hapus');
+        return redirect(route('berita'))->with('success', 'berita berhasil di hapus');
     }
 
     //======================================================================================================================================================================================================================

@@ -22,7 +22,7 @@
                     <div class="form-group mb-4">
                         <label for="name">Nama Dokter</label>
                         <input type="text" name="nama" id="name"
-                            class="form-control custom-width @error('nama') is-invalid @enderror" placeholder="Nama Dokter" required>
+                            class="form-control custom-width @error('nama') is-invalid @enderror" value="{{ old('nama') }}" placeholder="Nama Dokter" required>
                         @error('nama')
                         <div class="invalid-feedback">
                             {{$message}}

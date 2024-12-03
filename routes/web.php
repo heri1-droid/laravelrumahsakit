@@ -87,12 +87,12 @@ Route::get('/blog/detail', function () {
     return view('home.layouts.wrapper', $data);
 });
 
-Route::get('/auth', function () {
-    $data = [
-        'content' => 'home/auth/login'
-    ];
-    return view('home.layouts.wrapper', $data);
-});
+// Route::get('/auth', function () {
+//     $data = [
+//         'content' => 'home/auth/login'
+//     ];
+//     return view('home.layouts.wrapper', $data);
+// });
 
 
 

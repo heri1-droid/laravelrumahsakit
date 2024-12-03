@@ -33,7 +33,7 @@
                             </a></div>
                         <h6 class="mb-0">{{$item->layanan}}</h6>
                         <small class="text-success pt-2">Layanan {{$item->layanan}}</small>
-                        <div class="mt-4 apointment-layanan"> <a href="/penawaran/{{$item->slug}}" class="btn btn-success text"><small>&nbsp;<i
+                        <div class="mt-4 apointment-layanan"> <a href="/penawaran/{{$item->slug}}" class="btn btn-success text" ><small>&nbsp;<i
                                         class="fas fa-search"></i> Lihat
                                     Layanan</small></a> </div>
                     </div>

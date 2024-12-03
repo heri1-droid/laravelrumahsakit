@@ -1,4 +1,5 @@
 <link href="{{ asset('css/berita.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/home.css')}}" rel="stylesheet" />
 
 <div style="background: radial-gradient(circle, #ffffff, #fffdf9);">
 
@@ -27,6 +28,12 @@
               <p class="text-secondary">#rsiarrasyid</p>
               <a href="/detail/{{$item->slug}}"
                 class="text-dexoration-none text-danger {{ Request::is('blog') ? 'active' : ''}}">Selengkapnya</a>
+{{-- 
+                <a href="/detail/{{$item->slug}}" 
+                  class="text-dexoration-none text-danger {{ Request::is('detail/*') ? 'active' : '' }}">
+                  Selengkapnya
+               </a> --}}
+
             </div>
           </div>
         </div>

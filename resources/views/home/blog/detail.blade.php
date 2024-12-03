@@ -1,6 +1,6 @@
 <link href="{{ asset('css/berita.css')}}" rel="stylesheet" />
-<!-- <link href="{{ asset('css/detail/bootstrap.css')}}" rel="stylesheet" /> -->
-<!-- <link href="{{ asset('css/detail/theme.css')}}" rel="stylesheet" /> -->
+<link href="{{ asset('css/home.css')}}" rel="stylesheet" />
+
 
 
 <div style="background: radial-gradient(circle, #ffffff, #fffdf9);">
