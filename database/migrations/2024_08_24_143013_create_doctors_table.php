@@ -18,7 +18,7 @@ return new class extends Migration
             $table->primary('id');
             $table->string('nama');
             $table->string('foto');
-            $table->longText('desc');
+            $table->longText('desc')->nullable();
             $table->string('spesialis',20);
             $table->timestamps();
         });

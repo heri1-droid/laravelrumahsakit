@@ -16,6 +16,8 @@ class AppssController extends Controller
         $data = [
             'content' => 'home/dokterrs/index',
             'doctors' => Doctor::orderBy('nama', 'asc')->paginate(8)
+            // 'doctors' => Doctor::orderBy('nama', 'asc')->paginate(8)->onEachSide(count: 1)
+
         ];
 
         return view('home.layouts.wrapper', $data);

@@ -14,7 +14,7 @@ class AppController extends Controller
     {
         $data = [
             'content' => 'home/home/index',
-            'artikels' => Berita::orderBy('id', 'desc')->limit(3)->get()
+            'artikels' => Berita::orderBy('created_at', 'desc')->limit(3)->get()
         ];
 
         return view('home.layouts.wrapper', $data);
@@ -24,7 +24,7 @@ class AppController extends Controller
     {
         $data = [
             'content' => 'home/blog/berita',
-            'artikels' => Berita::orderBy('id', 'desc')->paginate(6)
+            'artikels' => Berita::orderBy('created_at', 'desc')->paginate(6)
         ];
 
         return view('home.layouts.wrapper', $data);

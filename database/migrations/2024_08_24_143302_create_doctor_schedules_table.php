@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('doctor_schedules', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('day');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->uuid('doctor_id'); // Tetap menggunakan UUID
             $table->foreign('doctor_id')->references('id')->on('doctors'); // Tambahkan foreign key
             $table->timestamps();

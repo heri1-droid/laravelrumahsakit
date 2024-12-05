@@ -10,33 +10,26 @@
   background-position: center;
   margin-bottom: 20px;
   padding: 40px 15px;
-  /* Increased padding for better spacing */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-/* Text Styling */
 .header-section h1 {
   font-size: 2.5rem;
-  /* Responsive font size */
   font-weight: 700;
-  /* Bold font for emphasis */
   letter-spacing: 1px;
-  /* Add some spacing between letters */
   margin-bottom: 20px;
   text-transform: uppercase;
 }
 
 .header-section small {
   font-size: 1rem;
-  /* Smaller font size for subtitle */
   font-weight: 300;
 }
 
 
-/* css yang baru */
 .page-section {
   position: relative;
   padding-top: 80px;
@@ -280,109 +273,81 @@
 }
 
 
-/* Styling for the article and sidebar */
 .page-section {
   padding-top: 3rem;
-  /* Reduced padding top */
 }
 
 .container {
   max-width: 1200px;
-  /* Adjust container width */
 }
 
 .blog-details .post-thumb img {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  /* Rounded corners for images */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  /* Soft shadow for images */
 }
 
 .blog-details .post-title {
   margin-top: 1.5rem;
-  /* Space between title and content */
   font-size: 2rem;
-  /* Adjust font size */
   font-weight: bold;
-  /* Bold title */
 }
 
 .blog-details .post-content p {
   line-height: 1.6;
-  /* Improve readability */
   font-size: 1rem;
-  /* Adjust font size */
   color: #333;
-  /* Darker text for better contrast */
 }
 
 .sidebar {
   border-left: 1px solid #ddd;
-  /* Light border for separation */
   padding-left: 1.5rem;
-  /* Add padding */
 }
 
 .sidebar-block {
   margin-bottom: 2rem;
-  /* Space between blocks */
 }
 
 .sidebar-block .sidebar-title {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  /* Space below title */
 }
 
 
 .blog-item {
   display: flex;
   margin-bottom: 1rem;
-  /* Space between blog items */
   border-bottom: 1px solid #ddd;
-  /* Divider line */
   padding-bottom: 1rem;
-  /* Padding for blog items */
 }
 
 .blog-item .post-thumb img {
   width: 80px;
-  /* Fixed width for thumbnail */
   height: auto;
   border-radius: 4px;
-  /* Rounded corners for thumbnails */
 }
 
 .blog-item .content {
   margin-left: 1rem;
-  /* Space between image and content */
 }
 
 .blog-item .post-title {
   font-size: 1rem;
-  /* Font size for post title */
   font-weight: normal;
   color: #007bff;
-  /* Link color */
 }
 
 .blog-item .meta {
   font-size: 0.875rem;
-  /* Smaller font size for meta information */
   color: #666;
-  /* Lighter color for meta */
 }
 
 .blog-item .meta a {
   margin-right: 1rem;
-  /* Space between meta links */
 }
 
-
-/* Styling for pagination */
 .pagination {
   margin-top: 20px;
 }
@@ -390,30 +355,25 @@
 .page-link {
   border-radius: 25px;
   padding: 5px 15px;
-  /* Mengurangi padding pada pagination */
 }
 
 .page-item.active .page-link {
   background-color: #28a745;
-  /* Warna hijau untuk halaman aktif */
   border-color: #28a745;
 }
 
 .page-link:hover {
   background-color: #e9ecef;
-  /* Warna latar belakang saat di-hover */
 }
 
 .page-link:focus {
   box-shadow: none;
-  /* Hilangkan bayangan saat tombol fokus */
 }
 
 .card-artikel {
-  margin-top: 20px; /* Jarak atas default */
+  margin-top: 20px;
 }
 
-/* Menambahkan margin lebih besar pada card terbaru */
 .card-artikel:first-of-type {
-  margin-top: 40px; /* Jarak atas lebih besar untuk card pertama */
+  margin-top: 40px;
 }

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('beritas', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->string('judul', 50);
-            $table->string('slug',50);
+            $table->string('judul');
+            $table->string('slug');
             $table->string('image');
             $table->longText('desc');
             $table->timestamps();

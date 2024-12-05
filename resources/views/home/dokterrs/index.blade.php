@@ -133,10 +133,14 @@
             @endforeach
         </div>
 
-        <!-- Pagination links -->
-        <div class="d-flex justify-content-center">
+        {{-- <div class="d-flex justify-content-center">
             {{ $doctors->links() }}
+        </div> --}}
+        
+        <div class="d-flex justify-content-center">
+            {{ $doctors->links('vendor.pagination.bootstrap-4') }}
         </div>
+        
     </div>
 </div>
 

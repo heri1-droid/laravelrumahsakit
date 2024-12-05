@@ -42,6 +42,7 @@
                                 <option value="Penyakit Dalam">Penyakit Dalam</option>
                                 <option value="Saraf">Saraf</option>
                                 <option value="Bedah">Bedah</option>
+                                <option value="Bedah Mulut">Bedah Mulut</option>
                                 <option value="OBGYN">OBGYN</option>
                                 <option value="Anak">Anak</option>
                                 <option value="Gigi">Gigi</option>
@@ -49,7 +50,6 @@
                                 <option value="Mata">Mata</option>
                                 <option value="Ginjal">Ginjal</option>
                                 <option value="Orthopedi">Orthopedi</option>
-                                <option value="Bedah Mulut">Bedah Mulut</option>
                                 <option value="Kesehatan Jiwa">Kesehatan Jiwa</option>
                                 <option value="Kulit & Kelamin">Kulit & Kelamin</option>
                                 <option value="Rehabilitas Medik">Rehabilitas Medik</option>
